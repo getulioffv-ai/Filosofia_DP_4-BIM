@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Caderno de estudos de Filosofia do 3º ano, 4º bimestre: Maquiavel, contratualismo, Kant, Schopenhauer e Nietzsche, com exercícios.">
+<title>Caderno de Filosofia 4º Bimestre</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{color-scheme:light}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: caderno de estudos. Barra fixa com as cinco unidades, coluna única de leitura (~66 caracteres),
+   termos-chave riscados com marca-texto, exercícios em blocos destacados no fim de cada unidade. */
+:root{
+  --paper:#F5F6FA; --surface:#FFFFFF; --ink:#16203A; --muted:#566080; --line:#D9DEEA;
+  --mark:#FFE066; --accent:#2743B8; --accent-soft:#E6EAFB;
+  --ok:#1B7550; --ok-bg:#E1F3EA; --bad:#B0352A; --bad-bg:#FBE8E5;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#10141F; --surface:#192032; --ink:#E7EAF4; --muted:#9BA5C0; --line:#2B3450;
+  --mark:#6A5A10; --accent:#93A8FF; --accent-soft:#222C4D;
+  --ok:#6FD3A6; --ok-bg:#15362A; --bad:#FF9C91; --bad-bg:#43201C; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --paper:#10141F; --surface:#192032; --ink:#E7EAF4; --muted:#9BA5C0; --line:#2B3450;
+  --mark:#6A5A10; --accent:#93A8FF; --accent-soft:#222C4D;
+  --ok:#6FD3A6; --ok-bg:#15362A; --bad:#FF9C91; --bad-bg:#43201C; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.col{max-width:44rem;margin-inline:auto}
+
+/* barra de navegação */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar-in{max-width:60rem;margin-inline:auto;display:flex;align-items:center;gap:.75rem;padding-block:.55rem}
+.brand{font-family:var(--display);font-weight:700;font-size:1rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.tabs{display:flex;gap:.25rem;overflow-x:auto;min-width:0;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{font-family:var(--display);font-weight:500;font-size:.9rem;color:var(--muted);text-decoration:none;padding:.35rem .7rem;border-radius:999px;white-space:nowrap}
+.tabs a:hover{color:var(--ink)}
+.tabs a[aria-current="page"]{background:var(--ink);color:var(--paper)}
+a:focus-visible,button:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+main{padding-block:2rem 4rem}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,6vw,3rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:1.5rem;font-weight:700;margin-top:2.5rem}
+h3{font-size:1.1rem;font-weight:700}
+p{margin:0}
+.flow{display:flex;flex-direction:column;gap:1rem}
+.lede{font-size:1.2rem;line-height:1.5;color:var(--ink)}
+mark{background:linear-gradient(transparent 45%,var(--mark) 45%);color:inherit;padding:0 .1em;font-weight:600}
+.meta{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+blockquote{margin:0;padding-left:1rem;border-left:3px solid var(--accent);font-style:italic}
+blockquote cite{display:block;font-style:normal;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;line-height:1.4}
+.note{background:var(--accent-soft);padding:.9rem 1rem;border-radius:6px;font-size:1rem}
+.note b{font-family:var(--display)}
+ul.plain{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.4rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.92rem;line-height:1.4}
+th,td{text-align:left;vertical-align:top;padding:.55rem .6rem;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--display);border-bottom:2px solid var(--ink)}
+tbody th{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500;width:7.5rem}
+
+/* início */
+.units{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.units li{border-top:1px solid var(--line)}
+.units li:last-child{border-bottom:1px solid var(--line)}
+.units a{display:grid;grid-template-columns:2.2rem 1fr auto;gap:.75rem;align-items:baseline;padding:1rem .25rem;text-decoration:none;color:var(--ink)}
+.units a:hover h3{color:var(--accent)}
+.units .n{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.units p{font-size:.95rem;color:var(--muted);line-height:1.45;margin-top:.2rem}
+.units .prog{font-family:var(--mono);font-size:.75rem;color:var(--muted);white-space:nowrap}
+.units .prog.done{color:var(--ok)}
+.steps{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:.35rem}
+
+/* conceitos */
+details.term{border-bottom:1px solid var(--line)}
+details.term summary{cursor:pointer;font-family:var(--display);font-weight:700;padding:.6rem 0;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+details.term summary::-webkit-details-marker{display:none}
+details.term summary::after{content:"ver";font-family:var(--mono);font-weight:400;font-size:.72rem;color:var(--muted)}
+details.term[open] summary::after{content:"ocultar"}
+details.term p{padding-bottom:.8rem;font-size:1rem}
+
+/* exercícios */
+.ex{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1.1rem;display:flex;flex-direction:column;gap:.8rem}
+.ex .q{font-weight:600}
+.ex .ctx{font-size:1rem;color:var(--ink)}
+.opts{display:flex;flex-direction:column;gap:.45rem}
+.opt{display:grid;grid-template-columns:1.6rem 1fr;gap:.4rem;text-align:left;font:inherit;font-size:.98rem;line-height:1.45;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.55rem .7rem;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt b{font-family:var(--mono);font-weight:500;color:var(--muted)}
+.opt.right{background:var(--ok-bg);border-color:var(--ok)}
+.opt.right b{color:var(--ok)}
+.opt.wrong{background:var(--bad-bg);border-color:var(--bad)}
+.opt.wrong b{color:var(--bad)}
+.opt:disabled{cursor:default}
+.fb{font-size:.97rem;padding:.7rem .85rem;border-radius:6px}
+.fb.ok{background:var(--ok-bg)}
+.fb.no{background:var(--bad-bg)}
+.fb strong{font-family:var(--display)}
+textarea{width:100%;min-height:7.5rem;font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.7rem;resize:vertical}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.btn{font-family:var(--display);font-weight:500;font-size:.9rem;color:var(--paper);background:var(--ink);border:1px solid var(--ink);border-radius:999px;padding:.45rem .95rem;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.small{font-size:.85rem;color:var(--muted);line-height:1.45}
+.score{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.next{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line);font-family:var(--display);font-weight:500}
+.next a{color:var(--accent);text-decoration:none}
+.next a:hover{text-decoration:underline}
+@media (max-width:30rem){ .units a{grid-template-columns:1.8rem 1fr} .units .prog{grid-column:2} .brand{display:none} }
+@media (prefers-reduced-motion:no-preference){ .opt,.tabs a{transition:background-color .15s,border-color .15s} }
+</style>
+
+</head>
+<body>
+<header class="bar gutter">
+  <div class="bar-in">
+    <a class="brand" href="#inicio">Caderno de Filosofia</a>
+    <nav class="tabs" aria-label="Unidades">
+      <a href="#inicio">Início</a>
+      <a href="#maquiavel">Maquiavel</a>
+      <a href="#contratualismo">Contratualismo</a>
+      <a href="#kant">Kant</a>
+      <a href="#schopenhauer">Schopenhauer</a>
+      <a href="#nietzsche">Nietzsche</a>
+    </nav>
+  </div>
+</header>
+
+<main class="gutter">
+
+<!-- ================= INÍCIO ================= -->
+<section class="view col flow" id="inicio">
+  <p class="eyebrow">Filosofia · 3º ano · 4º bimestre · Prof. Getulio Fidelis</p>
+  <h1>Do príncipe ao eterno retorno</h1>
+  <p class="lede">Este caderno reúne as cinco unidades do bimestre. Em cada uma você encontra a explicação do conteúdo, os <mark>conceitos-chave</mark> e exercícios com correção na hora.</p>
+
+  <ol class="units" id="unit-list">
+    <li><a href="#maquiavel"><span class="n">01</span><span><h3>O pensamento político de Maquiavel</h3><p>A política como ela é: fortuna, virtù e o jogo das aparências.</p></span><span class="prog" data-prog="maquiavel"></span></a></li>
+    <li><a href="#contratualismo"><span class="n">02</span><span><h3>O contratualismo: Hobbes, Locke e Rousseau</h3><p>Por que obedecemos ao Estado? Três respostas a partir do contrato social.</p></span><span class="prog" data-prog="contratualismo"></span></a></li>
+    <li><a href="#kant"><span class="n">03</span><span><h3>A ética deontológica de Kant</h3><p>Agir por dever: os imperativos categóricos e a dignidade humana.</p></span><span class="prog" data-prog="kant"></span></a></li>
+    <li><a href="#schopenhauer"><span class="n">04</span><span><h3>Vontade e representação em Schopenhauer</h3><p>O véu de Maia, o ciclo do desejo e a arte como saída.</p></span><span class="prog" data-prog="schopenhauer"></span></a></li>
+    <li><a href="#nietzsche"><span class="n">05</span><span><h3>O pensamento de Nietzsche</h3><p>A crítica à verdade, Apolo e Dionísio, o super-homem e o eterno retorno.</p></span><span class="prog" data-prog="nietzsche"></span></a></li>
+  </ol>
+
+  <h2>Como estudar por aqui</h2>
+  <ol class="steps">
+    <li>Leia a unidade com calma. Os trechos com marca-texto são os conceitos que você precisa saber explicar.</li>
+    <li>Em “Conceitos-chave”, tente definir cada termo em voz alta antes de abrir a resposta.</li>
+    <li>Faça os exercícios. Se errar, releia o trecho indicado e tente de novo.</li>
+    <li>Responda à questão escrita com suas palavras e só depois compare com a resposta comentada.</li>
+  </ol>
+  <p class="small">Seu progresso e seus rascunhos ficam salvos apenas neste aparelho. Nada é enviado automaticamente ao professor.</p>
+</section>
+
+<!-- ================= MAQUIAVEL ================= -->
+<section class="view col flow" id="maquiavel">
+  <p class="eyebrow">Unidade 1 de 5</p>
+  <h1>O pensamento político de Maquiavel</h1>
+  <p class="meta">Nicolau Maquiavel (1469-1527) · O príncipe, c. 1513</p>
+  <p class="lede">Maquiavel descreve a política <mark>como ela é</mark>, e não como deveria ser. Por isso é considerado o fundador da Ciência Política.</p>
+
+  <h2>O contexto: uma Itália em pedaços</h2>
+  <p>Maquiavel foi funcionário do governo de Florença e participou de várias missões diplomáticas. O que ele escreve vem dessa experiência prática. Na época, a Itália estava dividida em repúblicas, principados e ducados que disputavam entre si. O imperador era fraco e o papa influenciava a política de toda a península. Enquanto isso, França, Inglaterra, Portugal e Espanha se tornavam Estados nacionais centralizados.</p>
+  <p><em>O príncipe</em> nasce desse cenário. O livro foi dedicado a Lourenço de Médici e funciona como um manual sobre como <mark>conquistar e manter o poder</mark>. No último capítulo, Maquiavel pede aos Médici que libertem a Itália “das mãos dos bárbaros”, isto é, dos interesses estrangeiros. O horizonte da obra é a unificação do país.</p>
+
+  <h2>A ruptura com a tradição</h2>
+  <p>Antes de Maquiavel, a política era pensada a partir de valores definidos fora dela.</p>
+  <ul class="plain">
+    <li><b>Gregos (Platão e Aristóteles):</b> a política estava ligada à ética. Primeiro se definia como as pessoas deveriam ser; depois se imaginava o regime ideal. O resultado eram utopias, como <em>A república</em>.</li>
+    <li><b>Tradição cristã:</b> a política deveria servir à salvação espiritual. Na prática, isso subordinava os governantes ao clero.</li>
+  </ul>
+  <p>Maquiavel faz o caminho inverso. Ele observa os fatos e analisa como os governantes agem de verdade. Essa postura se chama <mark>realismo político</mark>. Os objetivos do governante deixam de estar dados de antemão: mudam conforme os acontecimentos.</p>
+
+  <h2>Fortuna e virtù</h2>
+  <p>O governante lida com duas forças. A <mark>fortuna</mark> é a sorte, o acaso: traz o inesperado, que pode ajudar ou atrapalhar. A <mark>virtù</mark> é a capacidade de “dobrar a fortuna”, ou seja, de transformar o acaso em algo favorável.</p>
+  <p class="note"><b>Atenção:</b> virtù não é a virtude cristã. Não significa ser bondoso, e sim agir com eficácia para conquistar e manter o poder.</p>
+
+  <h2>Aparência, prudência e força</h2>
+  <p>Para Maquiavel, a política é um jogo de aparências. O príncipe não precisa <em>ser</em> bom; precisa <mark>parecer</mark> bom. A prudência o autoriza a não cumprir a palavra dada quando ela ameaça seus objetivos. E ele não deve abrir mão da força:</p>
+  <blockquote>“é muito mais seguro ser temido que amado”<cite>MAQUIAVEL, Nicolau. O príncipe. São Paulo: Martins Fontes, 2008. p. 80.</cite></blockquote>
+  <p>Como não existe tribunal acima dos príncipes, o que conta são os <mark>resultados</mark>. Se o príncipe vencer e mantiver o Estado, seus meios serão considerados honrosos, porque o povo julga pelas aparências e pelo resultado. Com isso, a política se separa da moral cristã.</p>
+  <p class="note"><b>Cuidado com a frase famosa:</b> “os fins justificam os meios” não aparece em <em>O príncipe</em>. O que Maquiavel afirma é que os meios serão <em>julgados</em> pelo resultado alcançado.</p>
+
+  <h2>O Maquiavel republicano</h2>
+  <p>Em outra obra, os <em>Comentários sobre a primeira década de Tito Lívio</em>, Maquiavel defende a <mark>república</mark>. Seu exemplo é Roma, onde patrícios e plebeus viviam em conflito. Para ele, esse conflito foi bom: dele nasceram as leis que protegem a liberdade.</p>
+  <blockquote>“Todas as leis para proteger a liberdade nascem da sua desunião.”<cite>MAQUIAVEL, Nicolau. Comentários sobre a primeira década de Tito Lívio. Brasília: Editora UnB, 1994. p. 31.</cite></blockquote>
+  <p>Como conciliar o defensor da república com o autor de <em>O príncipe</em>? Rousseau achava que o livro era uma sátira. Outra leitura é esta: a república precisa de um Estado já consolidado, e a Itália da época não tinha um. O príncipe seria necessário primeiro, para trazer estabilidade e preparar um governo voltado ao bem comum.</p>
+
+  <h2>Conceitos-chave</h2>
+  <div>
+    <details class="term"><summary>Realismo político</summary><p>Analisar a política a partir do que os governantes fazem de fato, e não de como deveriam agir segundo a moral ou a religião.</p></details>
+    <details class="term"><summary>Fortuna</summary><p>A sorte ou o acaso. Traz acontecimentos inesperados, bons ou ruins, que o governante não controla.</p></details>
+    <details class="term"><summary>Virtù</summary><p>A capacidade do governante de se preparar, aproveitar as ocasiões e dobrar a fortuna para conquistar e manter o poder.</p></details>
+    <details class="term"><summary>Ser e parecer</summary><p>O príncipe não precisa ter todas as qualidades morais, mas precisa parecer tê-las, porque o povo julga pelas aparências e pelos resultados.</p></details>
+    <details class="term"><summary>Conflito e liberdade</summary><p>Nos <em>Comentários</em>, as disputas entre povo e aristocracia são vistas como a origem das leis que garantem a liberdade.</p></details>
+  </div>
+
+  <h2>Exercícios</h2>
+  <div class="flow" data-quiz="maquiavel"></div>
+  <div class="flow" data-open="maquiavel"></div>
+  <p class="next"><a href="#inicio">← Início</a><a href="#contratualismo">Próxima: Contratualismo →</a></p>
+</section>
+
+<!-- ================= CONTRATUALISMO ================= -->
+<section class="view col flow" id="contratualismo">
+  <p class="eyebrow">Unidade 2 de 5</p>
+  <h1>O contratualismo: Hobbes, Locke e Rousseau</h1>
+  <p class="meta">Séculos XVII e XVIII · Leviatã · Segundo tratado sobre o governo · O contrato social</p>
+  <p class="lede">Para os contratualistas, o Estado não é natural nem divino: ele nasce de um <mark>acordo entre indivíduos</mark>.</p>
+
+  <h2>O raciocínio comum</h2>
+  <p>Os três autores seguem o mesmo roteiro. Primeiro imaginam o <mark>estado de natureza</mark>, a vida humana sem Estado. Depois explicam por que as pessoas fariam um <mark>contrato social</mark>. Por fim, descrevem o tipo de poder que nasce desse contrato. O que muda de um para outro é a resposta dada em cada etapa.</p>
+
+  <h2>Hobbes: o medo e o Leviatã</h2>
+  <p>Para Thomas Hobbes (1588-1679), toda ação humana busca o prazer e foge do que desagrada. Sem um poder comum, cada um usa a violência para satisfazer seus desejos. O estado de natureza é a <mark>“guerra de todos contra todos”</mark>: a vida é solitária, pobre e curta, e não há justiça, propriedade nem progresso.</p>
+  <p>Mas os seres humanos também têm razão. Movidos pelo <mark>medo da morte violenta</mark>, eles renunciam a seus direitos e à sua liberdade em favor de um poder superior capaz de garantir a paz.</p>
+  <blockquote>“É como se cada homem dissesse a cada homem: cedo e transfiro o direito de governar-me a mim mesmo [...]. Feito isso, a multidão unida em uma só pessoa se chama Estado.”<cite>HOBBES, Thomas. Leviatã. São Paulo: Nova Cultural, 2000. p. 144.</cite></blockquote>
+  <p>O contrato é frágil, pois qualquer um pode quebrá-lo. Por isso o soberano precisa ser <mark>absoluto</mark>: é a fonte da lei e tem poder ilimitado. O Estado é o Leviatã, o monstro bíblico que paira sobre todos e os obriga a conter a violência. As ideias de Hobbes ajudaram a legitimar o absolutismo.</p>
+  <p class="note"><b>O que há de moderno em Hobbes:</b> ele parte de indivíduos livres e iguais, vê a sociedade como construção artificial (e não natural, como pensavam os gregos) e não recorre à religião para justificar o poder.</p>
+
+  <h2>Locke: direitos naturais e consentimento</h2>
+  <p>Para John Locke (1632-1704), o estado de natureza não é uma guerra. Nele predomina a razão e vale a <mark>lei natural</mark>, que garante a todos o direito à vida, à liberdade e à propriedade.</p>
+  <p>A propriedade nasce do <mark>trabalho</mark>. As árvores são de todos, mas o objeto que eu fiz com a madeira é meu. Há um limite: só posso ter aquilo que vou usar. Com o crescimento da população e a invenção do dinheiro, a acumulação se torna possível, a desigualdade aumenta e os direitos naturais ficam ameaçados.</p>
+  <p>Os indivíduos criam então o Estado para <mark>proteger seus direitos</mark>. O contrato é feito entre governantes e governados, e o poder se apoia no consentimento, expresso pela vontade da maioria. Se o governante violar os direitos do povo, ele rompe o contrato. O povo fica desobrigado de obedecer e pode substituí-lo. É o <mark>direito de resistência</mark>.</p>
+  <p class="note"><b>Legado:</b> Locke é chamado de “pai do liberalismo”. Vêm dele a ideia de que o Estado existe para garantir direitos, o governo pela maioria (eleições) e a separação entre Legislativo e Executivo. Suas ideias influenciaram a Revolução Gloriosa, a Independência dos Estados Unidos e a Revolução Francesa.</p>
+
+  <h2>Rousseau: o bom selvagem e a vontade geral</h2>
+  <p>Jean-Jacques Rousseau (1712-1778) acha que Hobbes e Locke descreveram o homem moderno, e não o homem natural. No estado de natureza, o ser humano seria livre e teria <mark>compaixão</mark>. Só existiriam desigualdades naturais, como a de força física. Esse é o “bom selvagem”, uma hipótese que talvez nunca tenha existido de fato.</p>
+  <p>O que corrompeu o ser humano foi a sociedade e, em especial, a <mark>propriedade privada</mark>:</p>
+  <blockquote>“O verdadeiro fundador da sociedade civil foi o primeiro que, tendo cercado um terreno, lembrou-se de dizer ‘Isto é meu’ e encontrou pessoas suficientemente simples para acreditá-lo.”<cite>ROUSSEAU, Jean-Jacques. Discurso sobre a origem e os fundamentos da desigualdade entre os homens. São Paulo: Nova Cultural, 1989. p. 259.</cite></blockquote>
+  <p>Não é possível voltar à natureza. A saída é política. Em <em>O contrato social</em>, Rousseau defende que o <mark>povo é soberano</mark> e que a soberania não se representa: os cidadãos devem se reunir, discutir e votar as leis.</p>
+  <p>As leis devem expressar a <mark>vontade geral</mark>. Ela não é a soma dos interesses individuais; é o interesse que todos têm em comum. Obedecer à vontade geral é ser livre, porque cada cidadão obedece a uma lei que ele mesmo ajudou a fazer. O próprio Rousseau reconhecia que esse modelo só funcionaria em comunidades pequenas.</p>
+
+  <h2>Quadro comparativo</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th></th><th>Hobbes</th><th>Locke</th><th>Rousseau</th></tr></thead>
+      <tbody>
+        <tr><th>Estado de natureza</th><td>Guerra de todos contra todos</td><td>Liberdade e igualdade sob a lei natural</td><td>Liberdade e compaixão do bom selvagem</td></tr>
+        <tr><th>Por que o contrato</th><td>Medo da morte violenta</td><td>Proteger vida, liberdade e propriedade</td><td>Recuperar a liberdade perdida na sociedade</td></tr>
+        <tr><th>Quem governa</th><td>Soberano absoluto</td><td>Governo limitado, com consentimento</td><td>O próprio povo, em assembleia</td></tr>
+        <tr><th>Passagem à sociedade</th><td>Avanço necessário</td><td>Avanço necessário</td><td>Queda lamentável, mas sem volta</td></tr>
+        <tr><th>Legado</th><td>Justificou o absolutismo</td><td>Liberalismo e democracia representativa</td><td>Soberania popular e democracia direta</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Conceitos-chave</h2>
+  <div>
+    <details class="term"><summary>Estado de natureza</summary><p>Hipótese sobre como seria a vida humana sem Estado. Serve para explicar por que o poder político existe.</p></details>
+    <details class="term"><summary>Contrato social</summary><p>O acordo pelo qual os indivíduos criam a sociedade política. Torna o poder legítimo porque ele nasce do consentimento.</p></details>
+    <details class="term"><summary>Leviatã</summary><p>Imagem usada por Hobbes para o Estado: um poder enorme, que amedronta os indivíduos e assim garante a paz.</p></details>
+    <details class="term"><summary>Direito de resistência</summary><p>Em Locke, o direito do povo de desobedecer e substituir o governante que viola os direitos naturais.</p></details>
+    <details class="term"><summary>Vontade geral</summary><p>Em Rousseau, o interesse comum do povo. É diferente da vontade de todos, que é só a soma de interesses particulares.</p></details>
+    <details class="term"><summary>Direito natural e direito positivo</summary><p>O natural existe antes do Estado (central em Locke). O positivo é criado pelos seres humanos em uma situação específica (em Hobbes, é o que vale após o contrato).</p></details>
+  </div>
+
+  <h2>Exercícios</h2>
+  <div class="flow" data-quiz="contratualismo"></div>
+  <div class="flow" data-open="contratualismo"></div>
+  <p class="next"><a href="#maquiavel">← Maquiavel</a><a href="#kant">Próxima: Kant →</a></p>
+</section>
+
+<!-- ================= KANT ================= -->
+<section class="view col flow" id="kant">
+  <p class="eyebrow">Unidade 3 de 5</p>
+  <h1>A ética deontológica de Kant</h1>
+  <p class="meta">Immanuel Kant (1724-1804) · Crítica da razão prática · Fundamentação da metafísica dos costumes</p>
+  <p class="lede">Para Kant, uma ação é moral quando é feita <mark>por dever</mark>, e não pelos resultados que traz.</p>
+
+  <h2>Por que não a felicidade?</h2>
+  <p>Os gregos antigos viam a felicidade como a finalidade das ações humanas. Kant discorda. Todo estado de felicidade é passageiro, e algo passageiro não pode ser o fundamento da moral. Ele propõe uma <mark>ética do dever</mark> (deontológica), baseada na razão e na liberdade. Seu ideal é a <mark>autonomia</mark>: o ser humano, por ser racional, é capaz de dar a si mesmo a lei moral.</p>
+
+  <h2>Imperativo condicional e imperativo categórico</h2>
+  <p>Pense em alguém que mente para não magoar um amigo. O raciocínio é: “se eu mentir, então ele não ficará magoado”. Kant chama isso de <mark>imperativo condicional</mark>. A regra depende de uma consequência desejada.</p>
+  <p>Kant rejeita esse tipo de raciocínio na ética. Os princípios morais devem vir apenas da razão e, por isso, valer para todos, como as leis da matemática ou da física. São os <mark>imperativos categóricos</mark>: ordens incondicionais, que valem em qualquer situação. A ética kantiana é o oposto do relativismo.</p>
+
+  <h2>Primeiro imperativo: a lei universal</h2>
+  <blockquote>“Age de tal modo que a máxima da tua vontade possa sempre valer ao mesmo tempo como princípio de uma legislação universal.”<cite>KANT, Immanuel. Crítica da razão prática. São Paulo: Martins Fontes, 2003. p. 103.</cite></blockquote>
+  <p><mark>Máxima</mark> é a regra que orienta uma ação. O teste é perguntar: essa regra poderia valer para todas as pessoas, em todos os casos?</p>
+  <p>A mentira não passa no teste. Kant dá um exemplo extremo: um amigo se esconde na sua casa e um assassino pergunta se ele está lá. Mesmo nesse caso, mentir não se justifica. A regra por trás seria “posso mentir quando o resultado for conveniente”. Se todos a seguissem, ninguém poderia confiar em ninguém.</p>
+
+  <h2>Segundo imperativo: a humanidade como fim</h2>
+  <blockquote>“Age de tal maneira que uses a humanidade, tanto na tua pessoa como na pessoa de qualquer outro, sempre e simultaneamente como fim e nunca simplesmente como meio.”<cite>KANT, Immanuel. Fundamentação da metafísica dos costumes. Lisboa: Edições 70, 2007. p. 69.</cite></blockquote>
+  <p>Objetos podem ser usados como meios, porque não são livres. O ser humano é diferente: por ser racional, escolhe seus próprios fins. Ele é um <mark>fim em si mesmo</mark>. Essa é a base da ideia kantiana de <mark>dignidade humana</mark>.</p>
+  <p>Exemplo: a polícia prende um terrorista que sabe de um atentado e não quer falar. Pode torturá-lo? Para Kant, não. Seria usar uma pessoa como meio. O argumento “se obtivermos a informação, vidas serão salvas” é um raciocínio condicional. O que se respeita não é aquele indivíduo, mas a humanidade que existe nele.</p>
+  <p class="note"><b>Rigor:</b> a ética de Kant quase não admite exceções. Em compensação, ela impede que ações erradas sejam justificadas por “finalidades nobres”, algo que já teve efeitos desastrosos na história.</p>
+
+  <h2>Ser digno da felicidade</h2>
+  <p>Para Kant, o importante não é buscar ser feliz, e sim ser <mark>digno da felicidade</mark>. Os fins que devemos buscar são dois: a perfeição própria (desenvolver nossas capacidades intelectuais, morais e físicas) e a felicidade dos outros.</p>
+
+  <h2>Do dever ao Direito</h2>
+  <ul class="plain">
+    <li><b>Lei interna:</b> é a lei moral, autônoma e universal. Corresponde ao direito natural, baseado em princípios racionais.</li>
+    <li><b>Lei externa:</b> é o direito positivo. Pode restringir a liberdade de cada um para que a liberdade de todos seja respeitada.</li>
+  </ul>
+  <blockquote>“Duas coisas enchem o ânimo de admiração e veneração sempre nova e crescente [...]: o céu estrelado acima de mim e a lei moral em mim.”<cite>KANT, Immanuel. Crítica da razão prática. São Paulo: Martins Fontes, 2003. p. 569.</cite></blockquote>
+
+  <h2>Conceitos-chave</h2>
+  <div>
+    <details class="term"><summary>Ética deontológica</summary><p>Ética baseada em deveres. O valor moral da ação está no princípio que a orienta, e não nas consequências.</p></details>
+    <details class="term"><summary>Máxima</summary><p>A regra pessoal que alguém segue ao agir. É ela que deve passar pelo teste da universalização.</p></details>
+    <details class="term"><summary>Imperativo condicional</summary><p>Regra do tipo “se quero X, devo fazer Y”. Depende de um objetivo e, por isso, não serve de base para a moral.</p></details>
+    <details class="term"><summary>Imperativo categórico</summary><p>Dever incondicional, derivado da razão e válido para todos os seres racionais em qualquer situação.</p></details>
+    <details class="term"><summary>Dignidade humana</summary><p>O valor de todo ser humano como fim em si mesmo. Por isso ninguém pode ser usado apenas como meio.</p></details>
+    <details class="term"><summary>Autonomia</summary><p>Capacidade de dar a si mesmo a lei moral por meio da razão, sem depender de autoridade externa ou de desejos.</p></details>
+  </div>
+
+  <h2>Exercícios</h2>
+  <div class="flow" data-quiz="kant"></div>
+  <div class="flow" data-open="kant"></div>
+  <p class="next"><a href="#contratualismo">← Contratualismo</a><a href="#schopenhauer">Próxima: Schopenhauer →</a></p>
+</section>
+
+<!-- ================= SCHOPENHAUER ================= -->
+<section class="view col flow" id="schopenhauer">
+  <p class="eyebrow">Unidade 4 de 5</p>
+  <h1>Vontade e representação em Schopenhauer</h1>
+  <p class="meta">Arthur Schopenhauer (1788-1860) · O mundo como vontade e como representação, 1819</p>
+  <p class="lede">Para Schopenhauer, conhecemos o mundo apenas como <mark>representação</mark>, e o que nos move por dentro é a <mark>vontade</mark>, que nunca se satisfaz.</p>
+
+  <h2>Um crítico da razão iluminista</h2>
+  <p>Schopenhauer viveu numa época dominada pela confiança na razão e foi um de seus primeiros críticos. Foi influenciado por Kant e se opôs duramente a Hegel.</p>
+
+  <h2>“O mundo é minha representação”</h2>
+  <p>É assim que começa sua obra principal. Schopenhauer segue Kant: tudo o que percebemos passa pelos sentidos, pelas categorias de tempo e espaço e pelas estruturas do nosso entendimento. Por isso nunca temos contato direto com o real. Conhecemos a <mark>aparência</mark> das coisas, não a sua essência.</p>
+
+  <h2>O véu de Maia</h2>
+  <p>No século XIX, a expansão europeia sobre a Ásia tornou as culturas orientais mais conhecidas na Europa. Schopenhauer se interessou pelo budismo e pelo hinduísmo. Dos textos hindus ele tirou a imagem do <mark>véu de Maia</mark>: a ilusão que nos separa do mundo real e nos engana sobre os prazeres deste mundo.</p>
+  <blockquote>“[...] o véu da ilusão, que envolve os olhos dos mortais, deixando-lhes ver um mundo do qual não se pode falar que é nem que não é, pois assemelha-se ao sonho [...]”<cite>SCHOPENHAUER, Arthur. O mundo como vontade e como representação. São Paulo: Editora Unesp, 2005. p. 49.</cite></blockquote>
+
+  <h2>A vontade</h2>
+  <p>Há uma exceção: nossa própria subjetividade. Pela reflexão, podemos acessá-la diretamente. E o que encontramos lá é a <mark>vontade</mark>. Ela aparece como vontade de viver, da qual derivam desejos, prazeres e afetos.</p>
+  <p>Quase nunca controlamos a vontade. Isso significa que não controlamos totalmente nossas ações. A ideia abala a certeza iluminista de que a razão nos guia para a autonomia e antecipa as descobertas sobre o <mark>inconsciente</mark> feitas no fim do século XIX.</p>
+  <p>A vontade individual é parte de algo maior: uma vontade universal, “cósmica”, presente em todos os seres vivos.</p>
+
+  <h2>O ciclo do sofrimento</h2>
+  <p>Desejamos objetos que são meras representações. Por isso o prazer é ilusório. Quando a vontade não é satisfeita, há <mark>sofrimento</mark>. Quando é satisfeita, vem o <mark>tédio</mark>, que faz nascer outro desejo. O ciclo continua por toda a vida.</p>
+  <p>A morte, então, não deve ser temida. A natureza é indiferente a cada um de nós, e a morte nos livra da dor que caracteriza a vida. É por ideias assim que Schopenhauer é conhecido como pessimista.</p>
+
+  <h2>A arte como saída</h2>
+  <p>Existe uma experiência capaz de interromper o ciclo: a <mark>arte</mark>. Schopenhauer segue a ideia kantiana de juízo estético desinteressado. Diante da arte, não queremos possuir nada. Como ela não depende da vontade nem de interesses, permite uma libertação momentânea do sofrimento.</p>
+  <p>A <mark>música</mark> ocupa o lugar mais alto. Nela ouvimos a própria vontade em sua essência, e não em suas manifestações individuais. A música “rasga” o véu de Maia e nos conecta com o eterno.</p>
+
+  <h2>Conceitos-chave</h2>
+  <div>
+    <details class="term"><summary>Representação</summary><p>O mundo tal como aparece para o sujeito, sempre mediado pelos sentidos e pelo entendimento. Não é o real em si.</p></details>
+    <details class="term"><summary>Véu de Maia</summary><p>Imagem tirada do hinduísmo para a ilusão que nos impede de ver o mundo real e nos faz acreditar em falsos prazeres.</p></details>
+    <details class="term"><summary>Vontade</summary><p>A essência da subjetividade e de todos os seres vivos. É um impulso que não controlamos e que nunca se satisfaz por completo.</p></details>
+    <details class="term"><summary>Sofrimento e tédio</summary><p>Os dois polos da vida: o desejo insatisfeito faz sofrer; o desejo satisfeito gera tédio e um novo desejo.</p></details>
+    <details class="term"><summary>Contemplação estética</summary><p>Experiência desinteressada diante da arte, que suspende por um momento a vontade e, com ela, o sofrimento.</p></details>
+  </div>
+
+  <h2>Exercícios</h2>
+  <div class="flow" data-quiz="schopenhauer"></div>
+  <div class="flow" data-open="schopenhauer"></div>
+  <p class="next"><a href="#kant">← Kant</a><a href="#nietzsche">Próxima: Nietzsche →</a></p>
+</section>
+
+<!-- ================= NIETZSCHE ================= -->
+<section class="view col flow" id="nietzsche">
+  <p class="eyebrow">Unidade 5 de 5</p>
+  <h1>O pensamento de Nietzsche</h1>
+  <p class="meta">Friedrich Nietzsche (1844-1900) · A gaia ciência · Assim falou Zaratustra</p>
+  <p class="lede">Nietzsche acusa a Filosofia e a moral cristã de <mark>negarem a vida</mark> e propõe criar novos valores, que a afirmem.</p>
+
+  <h2>Um filósofo difícil de ler</h2>
+  <p>Nietzsche não construiu um sistema, como Kant ou Hegel. Escreveu ensaios, <mark>aforismos</mark> (textos curtos) e até poesia. Suas frases de impacto são muito citadas, quase sempre fora de contexto, o que gera equívocos. Além disso, seus conceitos mudam ao longo da obra. Ele admirou e depois rejeitou Schopenhauer e o compositor Wagner.</p>
+
+  <h2>A crítica à verdade</h2>
+  <p>Desde Sócrates, a Filosofia busca o conhecimento verdadeiro por meio da razão. Para Nietzsche, isso é uma deformação do pensamento. Ele retoma os sofistas: todo discurso produz efeitos em quem ouve, seja verdadeiro ou não. Sócrates convence pela imagem de humildade (“só sei que nada sei”) e pela figura de mártir, assim como Cristo. O problema é que ambos nos afastam da vida presente em nome de promessas que não podem ser confirmadas.</p>
+  <blockquote>“[...] as verdades são ilusões, das quais se esqueceu o que são, metáforas que se tornaram gastas e sem força sensível [...]”<cite>NIETZSCHE, F. Sobre verdade e mentira no sentido extramoral. In: Nietzsche. São Paulo: Nova Cultural, 1991. p. 34.</cite></blockquote>
+  <p>Segundo Nietzsche, os seres humanos inventaram a verdade por <mark>medo</mark>. Diante de uma natureza agressiva e incompreensível, criaram ideias que dão segurança: Deus, a verdade, a razão.</p>
+  <p class="note"><b>Atenção:</b> Nietzsche não nega os fatos (“esta pedra caiu”) nem a possibilidade de conhecer. O que ele critica é a verdade absoluta e transcendente, buscada pela metafísica desde Sócrates e Platão.</p>
+
+  <h2>Niilismo e “Deus está morto”</h2>
+  <p><mark>Niilismo</mark> é a negação da vida. Para Nietzsche, o cristianismo nega a vida em nome de uma recompensa após a morte; o socialismo, em nome de uma sociedade futura; a Filosofia, em nome de abstrações.</p>
+  <p>A frase <mark>“Deus está morto”</mark> é uma provocação. Ela anuncia o fim da moral cristã, baseada na submissão ao sobrenatural. Em sentido mais amplo, “Deus” também pode significar a razão, tratada desde o Iluminismo como fonte da moral e da verdade.</p>
+
+  <h2>Apolo e Dionísio</h2>
+  <p>Para explicar onde a cultura começou a declinar, Nietzsche volta à Grécia e usa dois deuses como símbolos.</p>
+  <ul class="plain">
+    <li><b>Apolíneo:</b> clareza, harmonia, medida, equilíbrio. Dele vem o pensamento racional. A cultura ocidental, incluindo a Filosofia, é herdeira de Apolo.</li>
+    <li><b>Dionisíaco:</b> emoção, excesso, paixão, desmedida (<em>hubris</em>). Foi sendo apagado, mas sobrevive na experiência estética.</li>
+  </ul>
+  <p>Nietzsche quer resgatar o lado dionisíaco. A Filosofia sozinha não basta; ela precisa se unir à arte. Daí suas imagens de dança:</p>
+  <blockquote>“é preciso ter ainda o caos dentro de si, para que possa dar à luz a uma estrela dançante”<cite>NIETZSCHE, F. Assim falou Zaratustra. São Paulo: Companhia das Letras, 2011. p. 18.</cite></blockquote>
+
+  <h2>Transvaloração e super-homem</h2>
+  <p><mark>Transvaloração de todos os valores</mark> significa colocar de lado as ideias de certo e errado, bom e mau com as quais fomos criados, para que novos valores possam surgir. É a condição para o <mark>super-homem</mark> (<em>Übermensch</em>, literalmente “além do homem”).</p>
+  <p>Essa travessia é arriscada: “O homem é uma corda estendida entre o animal e o super-homem – uma corda sobre um abismo”. Para enfrentá-la é preciso <mark>vontade de potência</mark>, a força que afirma a vida. A moral do ressentimento, uma escola pouco desafiadora ou um trabalho entediante atrofiam a potência. A arte, o pensamento livre e a paixão a expandem.</p>
+  <p class="note"><b>Não confunda:</b> o super-homem não é um herói com poderes nem alguém que domina os outros. É quem cria seus próprios valores e aceita a vida como ela é, inclusive com dor.</p>
+
+  <h2>O eterno retorno</h2>
+  <p>A tradição cristã pensa o tempo em linha reta: da criação ao Juízo Final. Nietzsche propõe imaginar um tempo circular.</p>
+  <blockquote>“Esta vida, como você a está vivendo e já viveu, você terá de viver mais uma vez por incontáveis vezes; e nada haverá de novo nela [...]”<cite>NIETZSCHE, F. A gaia ciência. São Paulo: Companhia das Letras, 2001. p. 230.</cite></blockquote>
+  <p>O que importa aqui não é a física, e sim a <mark>consequência ética</mark>. Se tudo fosse se repetir, agiríamos para que cada momento valesse a pena. Aceitaríamos o que não depende de nós. E nunca negaríamos o presente em nome de um futuro incerto.</p>
+
+  <h2>Conceitos-chave</h2>
+  <div>
+    <details class="term"><summary>Niilismo</summary><p>Negação da vida presente em nome de algo que estaria fora dela: outro mundo, um futuro ideal, uma verdade abstrata.</p></details>
+    <details class="term"><summary>“Deus está morto”</summary><p>Metáfora para o fim da moral cristã e, em sentido amplo, da crença em uma fonte absoluta de verdade e de valores.</p></details>
+    <details class="term"><summary>Apolíneo e dionisíaco</summary><p>Duas forças do espírito humano: a da medida e da razão (Apolo) e a da emoção e do excesso (Dionísio).</p></details>
+    <details class="term"><summary>Transvaloração dos valores</summary><p>Questionar e abandonar os valores herdados para criar novos valores, ligados à afirmação da vida.</p></details>
+    <details class="term"><summary>Vontade de potência</summary><p>Força afirmadora da vida. Cresce com a arte, o pensamento livre e a paixão; atrofia com o ressentimento e o tédio.</p></details>
+    <details class="term"><summary>Eterno retorno</summary><p>Hipótese de que a vida se repetiria infinitamente, usada como teste ético: você viveria este instante de novo, para sempre?</p></details>
+  </div>
+
+  <h2>Exercícios</h2>
+  <div class="flow" data-quiz="nietzsche"></div>
+  <div class="flow" data-open="nietzsche"></div>
+  <p class="next"><a href="#schopenhauer">← Schopenhauer</a><a href="#inicio">Voltar ao início →</a></p>
+</section>
+
+</main>
+
+<script>
+const QUIZ = {
+maquiavel: [
+ {ctx:'Em um debate na escola, um colega afirma: “Antes de discutir política, precisamos decidir como seria o governante perfeito. Só depois olhamos para os governos reais”.',
+  q:'O método de Maquiavel em O príncipe se opõe ao do colega porque',
+  o:['parte da observação de como os governantes agem de fato para conquistar e manter o poder.',
+     'considera que o governante perfeito já foi descrito pelos filósofos gregos da Antiguidade.',
+     'defende que a política só pode ser estudada a partir dos textos sagrados do cristianismo.',
+     'entende que todo governo real é corrupto e que por isso não vale a pena ser analisado.',
+     'propõe que cada povo imagine livremente a sua própria utopia antes de fundar um Estado.'],
+  a:0, hint:'Releia “A ruptura com a tradição”.',
+  why:'O colega raciocina como a tradição grega: primeiro o ideal, depois a realidade. Maquiavel inverte isso. Seu realismo político descreve a política como ela é, com base na experiência e na observação dos fatos.'},
+ {ctx:'No século XVI, França e Espanha já eram reinos unificados. A Itália continuava dividida em pequenos Estados rivais, sob influência do papa e de potências estrangeiras.',
+  q:'Esse cenário ajuda a entender por que Maquiavel, em O príncipe,',
+  o:['recomenda que os italianos aceitem pacificamente o domínio das potências estrangeiras.',
+     'defende a entrega do governo de toda a península ao papa, para garantir a união religiosa.',
+     'vê num governante forte o caminho para dar estabilidade e unidade política à Itália.',
+     'propõe que cada cidade italiana permaneça independente, sem nenhum poder centralizado.',
+     'afirma que a divisão política é uma vantagem, pois impede o surgimento de tiranos.'],
+  a:2, hint:'Releia “O contexto: uma Itália em pedaços”.',
+  why:'Diante da fragmentação e da crise, Maquiavel pensa ser necessário um príncipe forte. O último capítulo do livro pede que os Médici libertem a Itália “das mãos dos bárbaros”.'},
+ {ctx:'Um governante promete, em campanha, não aumentar impostos. Eleito, descobre que o Estado está quebrado e aumenta os impostos para evitar o colapso dos serviços públicos.',
+  q:'Segundo o raciocínio de Maquiavel, a decisão do governante',
+  o:['é condenável, pois a palavra dada deve ser mantida mesmo que o Estado seja destruído.',
+     'mostra falta de virtù, já que o governante capaz nunca muda de rumo depois de eleito.',
+     'é indiferente, pois os governados não se importam com os resultados de um governo.',
+     'pode ser prudente, pois manter a palavra não deve ameaçar a conservação do Estado.',
+     'prova que a política deve obedecer às mesmas regras morais da vida privada cristã.'],
+  a:3, hint:'Releia “Aparência, prudência e força”.',
+  why:'Para Maquiavel, a prudência leva o príncipe a não ficar preso à palavra dada quando ela se torna um obstáculo. O critério é manter o Estado, e os meios serão julgados pelo resultado.'},
+ {ctx:'O mesmo autor que escreveu um manual para príncipes também elogiou a república romana e os conflitos entre o povo e a aristocracia.',
+  q:'Uma forma de conciliar essas duas posições de Maquiavel é entender que',
+  o:['ele abandonou a defesa da república depois de conhecer pessoalmente a família Médici.',
+     'ele considerava o principado e a república regimes idênticos, sem diferença relevante.',
+     'ele via a república como um ideal impossível, que nunca existiu em nenhum lugar.',
+     'ele escreveu os Comentários apenas para agradar ao povo, sem acreditar no que dizia.',
+     'a república exige um Estado já consolidado, que um príncipe precisaria fundar antes.'],
+  a:4, hint:'Releia o final de “O Maquiavel republicano”.',
+  why:'O bem comum de uma república supõe um Estado estável, algo que a Itália fragmentada não tinha. O príncipe seria a etapa necessária para criar essa base.'}
+],
+contratualismo: [
+ {ctx:'Os moradores de um prédio recém-inaugurado se reúnem, discutem e aprovam um regimento. A partir dali, aceitam que o síndico aplique multas a quem descumprir as regras.',
+  q:'A situação ilustra a ideia central do contratualismo, segundo a qual',
+  o:['o poder pertence naturalmente aos mais fortes, que impõem as regras aos demais.',
+     'a autoridade legítima nasce de um acordo feito entre os próprios indivíduos.',
+     'as regras de convivência são reveladas por Deus e apenas aplicadas pelos homens.',
+     'a vida em sociedade é um instinto natural, que dispensa qualquer tipo de acordo.',
+     'toda autoridade é ilegítima, pois os indivíduos nunca abrem mão da sua liberdade.'],
+  a:1, hint:'Releia “O raciocínio comum”.',
+  why:'Para os contratualistas, a sociedade política é uma construção artificial. O poder é legítimo porque vem de um pacto entre indivíduos, e não da natureza, da força ou da vontade divina.'},
+ {ctx:'Em uma série de ficção, uma catástrofe destrói todos os governos. Sem polícia nem leis, os sobreviventes passam a se atacar por comida e abrigo, e ninguém confia em ninguém.',
+  q:'O mundo retratado na série se aproxima da descrição do estado de natureza feita por',
+  o:['Locke, para quem a lei natural basta para manter a paz e a igualdade entre os homens.',
+     'Rousseau, para quem o homem natural é pacífico e movido pela compaixão pelos outros.',
+     'Hobbes, para quem a falta de um poder comum leva à guerra de todos contra todos.',
+     'Locke, para quem a violência só aparece quando o governo viola os direitos do povo.',
+     'Rousseau, para quem a guerra é a condição original e permanente de toda a humanidade.'],
+  a:2, hint:'Releia “Hobbes: o medo e o Leviatã”.',
+  why:'É a visão de Hobbes: sem um poder capaz de impor a paz, cada um usa a violência para se preservar, e a vida se torna “solitária, pobre e curta”. Locke e Rousseau descrevem um estado de natureza muito diferente.'},
+ {ctx:'Em uma praça há mangueiras que são de uso comum. Uma moradora colhe algumas mangas, prepara geleia em casa e passa a considerar os potes como seus.',
+  q:'De acordo com Locke, a moradora tem razão, porque',
+  o:['tudo o que existe na natureza pertence a quem chegar primeiro e tomar posse.',
+     'a propriedade é concedida pelo governante, que distribui os bens entre os súditos.',
+     'a propriedade privada é um roubo, que só a força do Estado consegue garantir.',
+     'os bens comuns pertencem somente ao Estado, que autoriza o uso pelos cidadãos.',
+     'o trabalho transforma o bem comum e torna legítima a posse do que foi produzido.'],
+  a:4, hint:'Releia “Locke: direitos naturais e consentimento”.',
+  why:'Em Locke, a propriedade nasce do trabalho: as árvores são de todos, mas o que eu produzo com elas é meu. Ele ainda põe um limite: só é legítimo ter aquilo que se vai de fato usar.'},
+ {ctx:'Em uma assembleia do grêmio, todos os estudantes debatem e votam as regras de uso da quadra. Depois, um aluno reclama: “Agora não sou mais livre, tenho que obedecer a essas regras”.',
+  q:'Com base em Rousseau, seria possível responder ao aluno que',
+  o:['ele continua livre, pois obedece a uma lei que ele mesmo ajudou a criar.',
+     'ele perdeu a liberdade, pois toda regra coletiva é uma forma de opressão.',
+     'ele só será livre de novo quando voltar a viver sozinho, longe da sociedade.',
+     'ele deve obedecer por medo da punição, que é o fundamento de toda lei.',
+     'ele pode ignorar as regras, pois a vontade individual vale mais que a geral.'],
+  a:0, hint:'Releia “Rousseau: o bom selvagem e a vontade geral”.',
+  why:'Para Rousseau, liberdade não é ausência de leis. É obedecer apenas à lei que expressa a vontade geral, da qual cada cidadão participou. E ele deixa claro que não há retorno possível à natureza.'}
+],
+kant: [
+ {ctx:'Ana e Bia encontram uma carteira com dinheiro e a devolvem ao dono. Ana devolve porque há câmeras e teme ser punida. Bia devolve porque considera que ficar com ela seria errado em qualquer circunstância.',
+  q:'Do ponto de vista da ética kantiana,',
+  o:['as duas ações têm o mesmo valor moral, pois produziram o mesmo resultado para o dono.',
+     'a ação de Ana vale mais, pois ela calculou com cuidado as consequências do seu ato.',
+     'só a ação de Bia tem valor moral, pois foi feita por dever, e não por um interesse.',
+     'nenhuma das duas tem valor moral, pois a carteira deveria ter sido entregue à polícia.',
+     'a ação de Bia vale menos, pois ela não levou em conta a felicidade que sentiria.'],
+  a:2, hint:'Releia “Imperativo condicional e imperativo categórico”.',
+  why:'Ana segue um imperativo condicional (“se eu ficar com a carteira, serei punida”). Bia age por dever, seguindo uma regra que vale em qualquer situação. Para Kant, é o princípio da ação que lhe dá valor moral, não o resultado.'},
+ {ctx:'Nas redes sociais, é comum ver perfis que exibem viagens, festas e conquistas como prova de uma vida feliz, apresentada como o grande objetivo de todos.',
+  q:'Kant discordaria da ideia de que a felicidade é o objetivo último das ações porque, para ele,',
+  o:['a felicidade é impossível, já que a vida humana é feita apenas de dor e de tédio.',
+     'a felicidade é passageira e por isso não pode servir de fundamento para a moral.',
+     'a felicidade só é verdadeira quando é reconhecida e aprovada pelas outras pessoas.',
+     'a felicidade depende de bens materiais, que são distribuídos de forma desigual.',
+     'a felicidade é um pecado, pois afasta o ser humano dos seus deveres religiosos.'],
+  a:1, hint:'Releia “Por que não a felicidade?” e “Ser digno da felicidade”.',
+  why:'Para Kant, todo estado de felicidade passa; algo instável não pode fundamentar a moral. O que importa não é buscar ser feliz, e sim ser digno da felicidade, agindo por dever.'},
+ {ctx:'Em um hospital, cinco pacientes precisam de transplantes urgentes. Alguém sugere, em tom de provocação: “E se usássemos os órgãos de um único paciente saudável, sem ele saber? Salvaríamos cinco vidas”.',
+  q:'A ética kantiana rejeita a sugestão porque ela',
+  o:['salvaria um número de vidas pequeno demais para compensar o risco da cirurgia.',
+     'só poderia ser aceita se o hospital pagasse uma indenização à família do paciente.',
+     'traria má fama ao hospital, o que reduziria o número de doadores no futuro.',
+     'trata uma pessoa apenas como meio para fins alheios, o que fere sua dignidade.',
+     'contraria o desejo da maioria das pessoas, que deve orientar as decisões morais.'],
+  a:3, hint:'Releia “Segundo imperativo: a humanidade como fim”.',
+  why:'O segundo imperativo categórico proíbe usar um ser humano simplesmente como meio. O cálculo “se sacrificarmos um, salvamos cinco” é um raciocínio condicional, baseado em consequências, que Kant não aceita na ética.'},
+ {ctx:'Uma lei municipal proíbe som alto depois das 22h. Um morador protesta: “Isso limita a minha liberdade de ouvir música quando eu quiser”.',
+  q:'Na doutrina do Direito de Kant, uma lei como essa é um exemplo de',
+  o:['lei externa, que limita a liberdade de cada um para proteger a de todos.',
+     'lei interna, que nasce da consciência de cada pessoa e não depende do Estado.',
+     'imperativo categórico, que vale para todos os seres racionais em qualquer época.',
+     'direito natural, que existe antes de qualquer sociedade e não pode ser alterado.',
+     'máxima individual, que cada pessoa escolhe livremente seguir ou não seguir.'],
+  a:0, hint:'Releia “Do dever ao Direito”.',
+  why:'Kant distingue a lei interna (moral, autônoma) da lei externa, o direito positivo, que regula a influência de um indivíduo sobre o outro. Ela pode limitar a liberdade de cada um para que a de todos seja respeitada.'}
+],
+schopenhauer: [
+ {ctx:'Duas pessoas olham para a mesma paisagem. Nenhuma delas, porém, consegue “sair” da própria visão, da própria audição e da própria mente para conferir como a paisagem é em si mesma.',
+  q:'A situação ajuda a compreender a frase “O mundo é minha representação”, que significa que',
+  o:['o mundo exterior não existe e tudo o que vemos é inventado pela imaginação.',
+     'cada pessoa pode mudar a realidade física apenas com a força do pensamento.',
+     'os sentidos nunca erram e mostram as coisas exatamente como elas são em si.',
+     'só os cientistas, com seus instrumentos, chegam à essência real das coisas.',
+     'só conhecemos o mundo mediado pelos sentidos e pelo nosso entendimento.'],
+  a:4, hint:'Releia “O mundo é minha representação”.',
+  why:'Seguindo Kant, Schopenhauer afirma que todo objeto é condicionado pelo sujeito. Percebemos a aparência das coisas, nunca a coisa em si. Ele não diz que o mundo não existe, e sim que há um véu entre nós e o real.'},
+ {ctx:'Um jovem passa meses desejando um celular novo. Quando finalmente o compra, fica eufórico por alguns dias. Logo se acostuma, perde o interesse e começa a desejar o modelo seguinte.',
+  q:'Para Schopenhauer, essa experiência revela que',
+  o:['a felicidade completa depende apenas de escolher melhor os objetos de consumo.',
+     'o sofrimento é causado pela sociedade, que corrompe a bondade natural do homem.',
+     'a vontade oscila entre a dor do desejo e o tédio que vem com a satisfação.',
+     'a razão sempre controla os desejos quando o indivíduo é bem-educado desde cedo.',
+     'o desejo desaparece para sempre assim que o seu primeiro objeto é conquistado.'],
+  a:2, hint:'Releia “O ciclo do sofrimento”.',
+  why:'É o ciclo descrito por Schopenhauer: a vontade insatisfeita provoca sofrimento; satisfeita, provoca tédio, que gera novo desejo. Os objetos desejados são só representações, por isso o prazer é ilusório.'},
+ {ctx:'Uma estudante coloca os fones, ouve uma música de que gosta muito e, por alguns minutos, esquece as preocupações, os planos e até de si mesma.',
+  q:'Na filosofia de Schopenhauer, esse efeito da música se explica porque a arte',
+  o:['aumenta os desejos, o que dá ao indivíduo mais motivos para querer viver.',
+     'suspende a vontade por um momento, por ser contemplada sem interesse.',
+     'distrai a mente, da mesma forma que as festas, os passeios e as compras.',
+     'ensina regras morais universais, que orientam as ações humanas pelo dever.',
+     'prova que o sofrimento é apenas uma ilusão criada pela razão iluminista.'],
+  a:1, hint:'Releia “A arte como saída”.',
+  why:'A experiência estética é independente da vontade e dos interesses: não queremos possuir nada. Por isso ela liberta, por instantes, do ciclo de sofrimento. Schopenhauer a diferencia dos prazeres passageiros das festas e compras.'},
+ {ctx:'O Iluminismo confiava que a razão tornaria o ser humano senhor de si mesmo, capaz de governar plenamente a própria vida.',
+  q:'A filosofia de Schopenhauer abala essa confiança ao afirmar que',
+  o:['somos movidos por uma vontade que quase nunca controlamos pela razão.',
+     'a razão é um dom divino, que foi concedido apenas a alguns escolhidos.',
+     'os seres humanos são totalmente determinados pelas leis do seu país.',
+     'o conhecimento científico é inútil e deve ser trocado pela religião.',
+     'a liberdade só existe para quem se retira da vida em sociedade.'],
+  a:0, hint:'Releia “A vontade”.',
+  why:'Para Schopenhauer, a essência da subjetividade é a vontade, e não a razão. Como quase nunca a controlamos, não comandamos totalmente nossas ações. A ideia antecipa a noção de inconsciente.'}
+],
+nietzsche: [
+ {ctx:'Em uma conversa, alguém diz: “Nietzsche afirmou que a verdade é uma ilusão. Então, para ele, não dá para saber nem se choveu ontem”.',
+  q:'Essa interpretação está equivocada porque Nietzsche',
+  o:['defende que só a ciência moderna é capaz de alcançar a verdade absoluta.',
+     'considera que a verdade existe, mas pertence apenas aos filósofos gregos.',
+     'acredita que a verdade é revelada pela fé, e não pela razão dos filósofos.',
+     'critica a verdade absoluta e transcendente, e não a ocorrência dos fatos.',
+     'afirma que todas as opiniões têm exatamente o mesmo valor e a mesma força.'],
+  a:3, hint:'Releia “A crítica à verdade”, em especial o quadro de atenção.',
+  why:'Nietzsche não nega a veracidade dos acontecimentos nem a possibilidade de conhecer. Seu alvo é a verdade primordial e transcendente que sustenta a metafísica desde Sócrates e Platão.'},
+ {ctx:'Um homem passa a vida inteira dizendo: “Hoje não importa. Eu aguento qualquer coisa agora, porque a vida de verdade começa depois”. O “depois” nunca chega.',
+  q:'Para Nietzsche, essa atitude é um exemplo de',
+  o:['vontade de potência, pois o homem demonstra força ao suportar o presente.',
+     'espírito dionisíaco, pois ele se entrega às paixões e aos excessos da vida.',
+     'transvaloração, pois ele cria valores novos, diferentes dos que herdou.',
+     'eterno retorno, pois ele repete todos os dias exatamente a mesma rotina.',
+     'niilismo, pois a vida presente é negada em nome de uma promessa futura.'],
+  a:4, hint:'Releia “Niilismo e ‘Deus está morto’”.',
+  why:'Niilismo é a negação da vida em nome de algo fora dela: outro mundo, um futuro ideal, uma abstração. É a mesma crítica que Nietzsche dirige ao cristianismo e ao socialismo de sua época.'},
+ {ctx:'Em uma apresentação, um grupo executa uma coreografia calculada, simétrica e sem um passo fora do lugar. Em outra, os dançarinos improvisam, tomados pela emoção, e arrastam a plateia com eles.',
+  q:'Usando as categorias de Nietzsche, a segunda apresentação expressa o espírito',
+  o:['apolíneo, ligado à clareza, à harmonia e ao equilíbrio das formas.',
+     'dionisíaco, ligado à emoção, ao excesso e à ruptura da medida.',
+     'socrático, ligado à busca da verdade por meio do diálogo racional.',
+     'niilista, ligado à negação do corpo e dos prazeres desta vida.',
+     'cristão, ligado à humildade e à renúncia dos próprios desejos.'],
+  a:1, hint:'Releia “Apolo e Dionísio”.',
+  why:'Dionísio representa a emoção, a paixão e a desmedida, que sobrevivem na experiência estética. A primeira apresentação, medida e equilibrada, é apolínea. Nietzsche quer resgatar o lado dionisíaco.'},
+ {ctx:'Imagine que alguém lhe dissesse: “Tudo o que você viveu hoje vai se repetir, exatamente igual, infinitas vezes”.',
+  q:'Para Nietzsche, a principal função dessa hipótese é',
+  o:['levar a viver de modo que cada instante mereça ser vivido novamente.',
+     'provar cientificamente que o tempo do Universo tem forma circular.',
+     'mostrar que nada do que fazemos tem importância, pois tudo se repete.',
+     'confirmar a promessa cristã de uma vida eterna depois do Juízo Final.',
+     'ensinar a sacrificar o presente para garantir um futuro mais seguro.'],
+  a:0, hint:'Releia “O eterno retorno”.',
+  why:'O eterno retorno interessa pelas consequências éticas, não pela física. Se tudo fosse retornar, agiríamos para que cada momento valesse a pena e não negaríamos o presente em nome de um futuro incerto.'}
+]};
+
+const OPEN = {
+ maquiavel:{q:'Maquiavel defende a tirania? Responda em cerca de dez linhas, considerando O príncipe e os Comentários sobre a primeira década de Tito Lívio.',
+  g:'Uma boa resposta mostra os dois lados. Em O príncipe, Maquiavel aconselha o governante a usar a força, a cuidar das aparências e a buscar resultados, o que pode sugerir defesa da tirania. Mas nos Comentários ele defende a república e vê no conflito entre povo e aristocracia a origem das leis da liberdade. A conciliação possível: a Itália fragmentada precisava primeiro de um Estado estável, que só um príncipe forte poderia fundar; a partir daí seria possível um governo voltado ao bem comum. Vale citar a leitura de Rousseau, para quem O príncipe seria uma sátira.'},
+ contratualismo:{q:'Compare o estado de natureza em Hobbes, Locke e Rousseau e explique como cada descrição leva a uma ideia diferente de governo.',
+  g:'O ponto central é ligar o diagnóstico à solução. Hobbes: estado de natureza é guerra de todos contra todos; por medo, os indivíduos cedem sua liberdade a um soberano absoluto. Locke: há liberdade, igualdade e direitos naturais, mas a acumulação gera conflitos; o Estado é criado para proteger esses direitos, com poder limitado e sujeito à resistência do povo. Rousseau: o homem natural é livre e compassivo; a sociedade e a propriedade o corromperam; a saída é um governo em que o próprio povo é soberano e faz as leis segundo a vontade geral.'},
+ kant:{q:'Um amigo está escondido na sua casa e alguém que quer matá-lo pergunta se ele está ali. Explique por que Kant diz que não se deve mentir e, em seguida, diga se você concorda, justificando.',
+  g:'Na primeira parte, espera-se: (1) a mentira se apoia em um raciocínio condicional (“se eu mentir, salvo meu amigo”); (2) a máxima “posso mentir quando for conveniente” não pode ser universalizada, pois destruiria a confiança entre as pessoas; (3) para Kant, o valor moral está no dever, não nas consequências. Na segunda parte, não há resposta única. Você pode concordar, lembrando que justificar erros por boas finalidades já teve efeitos desastrosos, ou discordar, argumentando que a regra é rígida demais. O importante é argumentar com os conceitos.'},
+ schopenhauer:{q:'Schopenhauer costuma ser chamado de pessimista. Explique o motivo e mostre por que essa descrição não conta a história toda.',
+  g:'O pessimismo vem do diagnóstico: somos movidos por uma vontade que não controlamos; o desejo insatisfeito gera sofrimento e o satisfeito gera tédio; a natureza é indiferente a nós e a morte aparece quase como alívio. Mas há uma saída: a experiência estética. Diante da arte, e sobretudo da música, contemplamos de forma desinteressada, a vontade se cala por um momento e escapamos do ciclo. A música “rasga” o véu de Maia e nos conecta com o eterno.'},
+ nietzsche:{q:'O que Nietzsche quer dizer com “Deus está morto”? Explique por que a frase não deve ser lida apenas como uma declaração de ateísmo.',
+  g:'A frase é uma metáfora provocadora. Seu alvo é a moral cristã, com sua submissão ao sobrenatural e sua promessa de recompensa após a morte, que Nietzsche considera uma negação da vida (niilismo). Em sentido mais amplo, “Deus” representa também a razão e a verdade absoluta, tratadas desde o Iluminismo como fontes da moral. A “morte de Deus” abre espaço para a transvaloração dos valores: a criação de novos valores, que afirmem a vida. Uma boa resposta também lembra que citar Nietzsche fora de contexto costuma gerar equívocos.'}
+};
+
+const KEY='caderno-filo-4bim';
+let state={}; try{ state=JSON.parse(localStorage.getItem(KEY)||'{}')||{} }catch(e){ state={} }
+const save=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(state)) }catch(e){} };
+const el=(tag,cls,html)=>{const n=document.createElement(tag); if(cls) n.className=cls; if(html!=null) n.innerHTML=html; return n};
+const L='ABCDE';
+
+function renderQuiz(unit){
+  const host=document.querySelector(`[data-quiz="${unit}"]`); host.innerHTML='';
+  const score=el('p','score'); host.appendChild(score);
+  const done=(state[unit]&&state[unit].done)||{};
+  const upd=()=>{ const n=Object.keys(done).length, t=QUIZ[unit].length;
+    score.textContent=`${n} de ${t} questões resolvidas`; state[unit]=state[unit]||{}; state[unit].done=done; save(); progress(); };
+  QUIZ[unit].forEach((it,i)=>{
+    const box=el('div','ex');
+    box.appendChild(el('p','eyebrow',`Questão ${i+1}`));
+    box.appendChild(el('p','ctx',it.ctx));
+    box.appendChild(el('p','q',it.q));
+    const opts=el('div','opts'); const fb=el('div','fb'); fb.hidden=true; fb.setAttribute('role','status');
+    const lock=()=>{ [...opts.children].forEach((b,j)=>{ b.disabled=true; if(j===it.a) b.classList.add('right') });
+      fb.className='fb ok'; fb.innerHTML=`<strong>Correta: ${L[it.a]}.</strong> ${it.why}`; fb.hidden=false; };
+    it.o.forEach((t,j)=>{
+      const b=el('button','opt',`<b>${L[j]})</b><span>${t}</span>`); b.type='button'; b.id=`${unit}-q${i}-o${j}`;
+      b.addEventListener('click',()=>{
+        if(j===it.a){ done[i]=1; lock(); upd(); }
+        else{ b.classList.add('wrong'); b.disabled=true; fb.className='fb no';
+          fb.innerHTML=`<strong>Ainda não.</strong> ${it.hint} Depois tente outra alternativa.`; fb.hidden=false; }
+      });
+      opts.appendChild(b);
+    });
+    box.appendChild(opts); box.appendChild(fb); host.appendChild(box);
+    if(done[i]) lock();
+  });
+  const reset=el('button','btn ghost','Refazer os exercícios desta unidade'); reset.type='button'; reset.id=`${unit}-reset`;
+  reset.addEventListener('click',()=>{ state[unit]=Object.assign({},state[unit],{done:{}}); save(); renderQuiz(unit); });
+  const r=el('div','row'); r.appendChild(reset); host.appendChild(r);
+  upd();
+}
+
+function renderOpen(unit){
+  const host=document.querySelector(`[data-open="${unit}"]`); const it=OPEN[unit];
+  const box=el('div','ex');
+  box.appendChild(el('p','eyebrow','Questão escrita'));
+  const lab=el('label','q',it.q); lab.htmlFor=`${unit}-draft`; box.appendChild(lab);
+  const ta=el('textarea'); ta.id=`${unit}-draft`; ta.placeholder='Escreva sua resposta aqui.'; ta.value=(state[unit]&&state[unit].draft)||'';
+  ta.addEventListener('input',()=>{ state[unit]=state[unit]||{}; state[unit].draft=ta.value; save(); });
+  box.appendChild(ta);
+  const row=el('div','row');
+  const show=el('button','btn','Ver resposta comentada'); show.type='button'; show.id=`${unit}-show`;
+  const copy=el('button','btn ghost','Copiar minha resposta'); copy.type='button'; copy.id=`${unit}-copy`;
+  const msg=el('span','small'); msg.setAttribute('role','status');
+  row.append(show,copy,msg); box.appendChild(row);
+  const g=el('div','fb ok',`<strong>O que uma boa resposta traz.</strong> ${it.g}`); g.hidden=true; box.appendChild(g);
+  show.addEventListener('click',()=>{ g.hidden=!g.hidden; show.textContent=g.hidden?'Ver resposta comentada':'Ocultar resposta comentada'; });
+  copy.addEventListener('click',()=>{
+    if(!ta.value.trim()){ msg.textContent='Escreva sua resposta antes de copiar.'; return; }
+    const fallback=()=>{ ta.focus(); ta.select(); msg.textContent='Texto selecionado. Use Ctrl+C (ou “Copiar”) para copiar.'; };
+    try{ navigator.clipboard.writeText(ta.value).then(()=>{ msg.textContent='Copiado. Agora é só colar na mensagem para o professor.'; },fallback); }catch(e){ fallback(); }
+  });
+  box.appendChild(el('p','small','O rascunho fica salvo neste aparelho. Para entregar, copie o texto e envie ao professor pelo canal combinado.'));
+  host.appendChild(box);
+}
+
+function progress(){
+  document.querySelectorAll('[data-prog]').forEach(s=>{
+    const u=s.dataset.prog, t=QUIZ[u].length, n=Object.keys((state[u]&&state[u].done)||{}).length;
+    s.textContent = n===0 ? `${t} exercícios` : (n===t ? 'concluída' : `${n} de ${t}`);
+    s.classList.toggle('done',n===t);
+  });
+}
+
+const VIEWS=['inicio','maquiavel','contratualismo','kant','schopenhauer','nietzsche'];
+function route(){
+  let h=(location.hash||'').replace('#',''); if(!VIEWS.includes(h)) h='inicio';
+  document.querySelectorAll('.view').forEach(v=>{ v.hidden = v.id!==h; });
+  document.querySelectorAll('.tabs a').forEach(a=>{
+    if(a.getAttribute('href')==='#'+h){ a.setAttribute('aria-current','page'); a.scrollIntoView({block:'nearest',inline:'center'}); }
+    else a.removeAttribute('aria-current'); });
+  window.scrollTo(0,0);
+}
+Object.keys(QUIZ).forEach(u=>{ renderQuiz(u); renderOpen(u); });
+progress(); route();
+window.addEventListener('hashchange',route);
+</script>
+
+</body>
+</html>
